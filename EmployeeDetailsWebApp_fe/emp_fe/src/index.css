@@ -10,7 +10,8 @@ body {
 
   background-attachment: fixed;
 
-  background-image: linear-gradient(45deg, #CBBACC 0%, #2580B3 100%);
+  background-image: url("/public/cl.jpg")
+  /* linear-gradient(45deg, #CBBACC 0%, #ccd0d4 100%); */
 
 }
 

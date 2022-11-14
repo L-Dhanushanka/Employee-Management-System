@@ -368,237 +368,329 @@ export class Employee extends Component{
 
         }=this.state;
 
-        return(
-<div>
-
-    <button type="button"
-    className="btn btn-success m-2 float-end"
-    data-bs-toggle="modal"
-    data-bs-target="#exampleModal"
-    onClick={()=>this.addClick()}>
-        Add Employee
-    </button>
-    <table className="table table-striped">
-    <thead>
-    <tr>
-        <th>
-        EmployeeId
-        </th>
-        <th>
-        Employee First Name
-        </th>
-        <th>
-        Employee Last Name
-        </th>
-        <th>
-        Email Address
-        </th>
-        <th>
-        Date Of Birth
-        </th>
-        <th>
-        Age
-        </th>
-        <th>
-        Salary
-        </th>
-        <th>
-        Department
-        </th>
-        <th>
-        Options
-        </th>
-    </tr>
-    </thead>
-    <tbody>
-        {employees.map(emp=>
-            <tr key={emp.EmployeeId}>
-                
-                <td>{emp.EmployeeId}</td>
-                <td>{emp.EmployeeFirstName}</td>
-                <td>{emp.EmployeeLastName}</td>
-                <td>{emp.EmailAddress}</td>
-                <td>{emp.DateOfBirth.substr(0,10)}</td>
-                <td>{emp.Age}</td>
-                <td>{emp.Salary}</td>
-                <td>{emp.Department}</td>
-               
-                <td>
-                <button type="button"
-                className="btn btn-warning mr-1"
+        return (
+          <div>
+            {" "}
+            <br /> &nbsp; &nbsp;
+            <div
+              style={{
+                background: "transparent",
+                height: "50px",
+                opacity: 0.9,
+                padding: "10px",
+              }}
+            >
+              <button
+                type="button"
+                className="p-3 mb-2 bg-dark text-light rounded-3"
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
-                onClick={()=>this.editClick(emp)}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-square" viewBox="0 0 16 16">
-                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                    <path fillRule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                    </svg>
-                </button>
-
-                
-
-                <button type="button"
-                className="btn btn-danger mr-1"
-                onClick={()=>this.deleteClick(emp.EmployeeId)}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash-fill" viewBox="0 0 16 16">
-                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                    </svg>
-                </button>
-
-                </td>
-            </tr>
-            )}
-    </tbody>
-    </table>
-
-<div className="modal fade" id="exampleModal" tabIndex="-1" aria-hidden="true">
-<div className="modal-dialog modal-lg modal-dialog-centered">
-<div className="modal-content">
-   <div className="modal-header">
-       <h5 className="modal-title">{modalTitle}</h5>
-       <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"
-       ></button>
-   </div>
-
-   <div className="modal-body justify-content-center">
-    <div className="d-flex flex-row bd-highlight mb-3 justify-content-center">
-     
-     <div className="p-2 w-50 bd-highlight justify-content-center ">
-    
-        <div className="input-group mb-3">
-            <span className="input-group-text">Employee First Name</span>
-            <input type="text" className="form-control"
-            value={this.state.EmployeeFirstName}
-            onChange={this.changeEmployeeFirstName}/>
-              <div style={{fontSize:12 ,color:"red"}}>
-
-                {this.state.EmployeeFirstNameError}
-
+                onClick={() => this.addClick()}
+              >
+                Add Employee
+              </button>
+            </div>{" "}
+            <br /> <br />
+            <div class="row">
+              {this.state.employees.map((emp, index) => (
+                <div class="col-sm-4">
+                  <div class="card">
+                    <div
+                      class="card-body"
+                      style={{ textDecoration: "none", background: "gray" }}
+                    >
+                      <h5>EMP No.0{index + 1}</h5>
+                      <br />
+                      <h6>Employee ID : {emp.EmployeeId} </h6>
+                      <h6>Employee First Name : {emp.EmployeeFirstName} </h6>
+                      <h6>Employee Last Name : {emp.EmployeeLastName} </h6>
+                      <h6>Email Address: {emp.EmailAddress} </h6>
+                      <h6>Date Of Birth : {emp.DateOfBirth.substr(0, 10)} </h6>
+                      <h6>Age: {emp.Age} </h6>
+                      <h6>Salary : {emp.Salary} </h6>
+                      <h6>Department: {emp.Department} </h6>
+                      &nbsp;&nbsp;
+                      <td>
+                        {" "}
+                        &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                        <button
+                          type="button"
+                          className="btn btn-warning mr-1"
+                          data-bs-toggle="modal"
+                          data-bs-target="#exampleModal"
+                          onClick={() => this.editClick(emp)}
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="25"
+                            height="25"
+                            fill="currentColor"
+                            className="bi bi-pencil-square"
+                            viewBox="0 0 16 16"
+                          >
+                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                            <path
+                              fillRule="evenodd"
+                              d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+                            />
+                          </svg>
+                        </button>
+                        &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                        &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                        &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                        <button
+                          type="button"
+                          className="btn btn-danger mr-1"
+                          onClick={() => this.deleteClick(emp.EmployeeId)}
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="25"
+                            height="25"
+                            fill="currentColor"
+                            className="bi bi-trash-fill"
+                            viewBox="0 0 16 16"
+                          >
+                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                          </svg>
+                        </button>
+                      </td>
+                      &nbsp;&nbsp;
+                    </div>
+                  </div>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
                 </div>
-        </div>
-
-        <div className="input-group mb-3">
-            <span className="input-group-text">Employee Last Name</span>
-            <input type="text" className="form-control"
-            value={EmployeeLastName}
-            onChange={this.changeEmployeeLastName}/>
-
-            <div style={{fontSize:12 ,color:"red"}}>
-
-            {this.state.EmployeeLastNameError}
-
+              ))}
             </div>
+            <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />{" "}
+            <br /> <br /> <br /> <br /> <br /> <br />
+            {/* <table className="table table-striped">
+              <thead>
+                <tr>
+                  <th>EmployeeId</th>
+                  <th>Employee First Name</th>
+                  <th>Employee Last Name</th>
+                  <th>Email Address</th>
+                  <th>Date Of Birth</th>
+                  <th>Age</th>
+                  <th>Salary</th>
+                  <th>Department</th>
+                  <th>Options</th>
+                </tr>
+              </thead>
+              <tbody>
+                {employees.map((emp) => (
+                  <tr key={emp.EmployeeId}>
+                    <td>{emp.EmployeeId}</td>
+                    <td>{emp.EmployeeFirstName}</td>
+                    <td>{emp.EmployeeLastName}</td>
+                    <td>{emp.EmailAddress}</td>
+                    <td>{emp.DateOfBirth.substr(0, 10)}</td>
+                    <td>{emp.Age}</td>
+                    <td>{emp.Salary}</td>
+                    <td>{emp.Department}</td>
 
-        </div>
+                    <td>
+                      <button
+                        type="button"
+                        className="btn btn-warning mr-1"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                        onClick={() => this.editClick(emp)}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          className="bi bi-pencil-square"
+                          viewBox="0 0 16 16"
+                        >
+                          <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                          <path
+                            fillRule="evenodd"
+                            d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+                          />
+                        </svg>
+                      </button>
 
-        <div className="input-group mb-3">
-            <span className="input-group-text">Email Address</span>
-            <input type="email" className="form-control"
-            value={EmailAddress}
-            onChange={this.changeEmailAddress}/>
+                      <button
+                        type="button"
+                        className="btn btn-danger mr-1"
+                        onClick={() => this.deleteClick(emp.EmployeeId)}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          className="bi bi-trash-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                        </svg>
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table> */}{" "}
+            <br />
+            <div
+              className="modal fade"
+              id="exampleModal"
+              tabIndex="-1"
+              aria-hidden="true"
+            >
+              <div className="modal-dialog modal-lg modal-dialog-centered">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title">{modalTitle}</h5>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <nav className="navbar navbar-expand-sm bg-secondary navbar-dark">
+                    <div className="modal-body justify-content-center">
+                      <div className="d-flex flex-row bd-highlight mb-3 justify-content-center">
+                        <div className="p-2 w-50 bd-highlight justify-content-center ">
+                          <div className="input-group mb-3">
+                            <span className="input-group-text">
+                              Employee First Name
+                            </span>
+                            <input
+                              type="text"
+                              className="form-control"
+                              value={this.state.EmployeeFirstName}
+                              onChange={this.changeEmployeeFirstName}
+                            />
+                            <div style={{ fontSize: 12, color: "red" }}>
+                              {this.state.EmployeeFirstNameError}
+                            </div>
+                          </div>
 
-              <div style={{fontSize:12 ,color:"red"}}>
+                          <div className="input-group mb-3">
+                            <span className="input-group-text">
+                              Employee Last Name
+                            </span>
+                            <input
+                              type="text"
+                              className="form-control"
+                              value={EmployeeLastName}
+                              onChange={this.changeEmployeeLastName}
+                            />
 
-                {this.state.EmailAddressError}
+                            <div style={{ fontSize: 12, color: "red" }}>
+                              {this.state.EmployeeLastNameError}
+                            </div>
+                          </div>
 
-            </div>
+                          <div className="input-group mb-3">
+                            <span className="input-group-text">
+                              Email Address
+                            </span>
+                            <input
+                              type="email"
+                              className="form-control"
+                              value={EmailAddress}
+                              onChange={this.changeEmailAddress}
+                            />
 
-        </div>
+                            <div style={{ fontSize: 12, color: "red" }}>
+                              {this.state.EmailAddressError}
+                            </div>
+                          </div>
 
-        <div className="input-group mb-3">
-            <span className="input-group-text">Date of Birth</span>
-            <input type="Date" className="form-control"
-            value={DateOfBirth}
-            onChange={this.changeDateOfBirth}/>
-              <div style={{fontSize:12 ,color:"red"}}>
+                          <div className="input-group mb-3">
+                            <span className="input-group-text">
+                              Date of Birth
+                            </span>
+                            <input
+                              type="Date"
+                              className="form-control"
+                              value={DateOfBirth}
+                              onChange={this.changeDateOfBirth}
+                            />
+                            <div style={{ fontSize: 12, color: "red" }}>
+                              {this.state.DateOfBirthError}
+                            </div>
+                          </div>
 
-                {this.state.DateOfBirthError}
+                          <div className="input-group mb-3">
+                            <span className="input-group-text">Age</span>
+                            <input
+                              type="number"
+                              className="form-control"
+                              value={Age}
+                              placeholder="Age auto generated"
+                              onChange={this.changeAge}
+                              disabled
+                            />
+                          </div>
 
+                          <div className="input-group mb-3">
+                            <span className="input-group-text">Salary</span>
+                            <input
+                              type="number"
+                              className="form-control"
+                              value={Salary}
+                              onChange={this.changeSalary}
+                            />
+                            <div style={{ fontSize: 12, color: "red" }}>
+                              {this.state.SalaryError}
+                            </div>
+                          </div>
+
+                          <div className="input-group mb-3">
+                            <span className="input-group-text">Department</span>
+                            <select
+                              className="form-select"
+                              onChange={this.changeDepartment}
+                              value={Department}
+                            >
+                              {departments.map((dep) => (
+                                <option key={dep.DepartmentId}>
+                                  {dep.DepartmentName}
+                                </option>
+                              ))}
+                            </select>
+                            <div style={{ fontSize: 12, color: "red" }}>
+                              {this.state.DepartmentError}
+                            </div>
+                          </div>
+
+                          <div className="d-flex justify-content-end">
+                            {EmployeeId == 0 ? (
+                              <button
+                                type="button"
+                                className="btn btn-primary float-start "
+                                onClick={() => this.createClick()}
+                              >
+                                Create
+                              </button>
+                            ) : null}
+
+                            {EmployeeId != 0 ? (
+                              <button
+                                type="button"
+                                className="btn btn-primary float-start"
+                                onClick={() => this.updateClick()}
+                              >
+                                Update
+                              </button>
+                            ) : null}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </nav>
                 </div>
-        </div>
-
-
-
-
-        <div className="input-group mb-3">
-            <span className="input-group-text">Age</span>
-            <input type="number"  className="form-control"
-             value={Age} 
-             placeholder="Age auto generated"
-            onChange={this.changeAge} disabled/>
-           
-
-
-        </div>
-
-        <div className="input-group mb-3">
-            <span className="input-group-text">Salary</span>
-            <input type="number" className="form-control"
-            value={Salary}
-            onChange={this.changeSalary}/>
-             <div style={{fontSize:12 ,color:"red"}}>
-
-                {this.state.SalaryError}
-
+              </div>
             </div>
-
-
-        </div>
-
-         <div className="input-group mb-3">
-            <span className="input-group-text">Department</span>
-            <select className="form-select"
-            onChange={this.changeDepartment}
-            value={Department}>
-                {departments.map(dep=><option key={dep.DepartmentId}>
-                    {dep.DepartmentName}
-                </option>)}
-            </select>
-            <div style={{fontSize:12 ,color:"red"}}>
-
-            {this.state.DepartmentError}
-            
-
-            </div>
-
-        </div>
-
-
-        <div className='d-flex justify-content-end'>
-        {EmployeeId==0?
-        <button type="button"
-        className="btn btn-primary float-start "
-        onClick={()=>this.createClick()}
-        >Create</button>
-        :null}
-
-        {EmployeeId!=0?
-        <button type="button"
-        className="btn btn-primary float-start"
-        onClick={()=>this.updateClick()}
-        >Update</button>
-        :null}
-
-    </div>
-
-
-     </div>
-    
-      
-         
-
-    </div>
-
-
-
-   </div>
-
-</div>
-</div> 
-</div>
-
-
-</div>
-        )
+          </div>
+        );
     }
 }
