@@ -1,7 +1,7 @@
-# "Employee Details Mangement System" is a management system that helps to manage the employees ans there related departments.Technology stack: React JS, DotNet Core Web API, MySQL.
+# "Employee Details Mangement System" is a management system that helps to manage the employees and there related departments.Technology stack: React JS, DotNet Core Web API, MySQL.
 
-     Implemented Skills
-● Back end implemented with Web API
+     Implemented Skills 
+● Back end implemented with Web API<br/>
 ● Front end application is a ReactJS app and created using create-react-app
 ● Code/Components re-use
 ● Validations
